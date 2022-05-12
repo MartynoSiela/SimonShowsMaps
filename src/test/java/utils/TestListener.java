@@ -18,6 +18,7 @@ public class TestListener implements ITestListener {
             TakesScreenshot takesScreenshot = ((TakesScreenshot) Driver.getDriver());
             File scrFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
+            System.out.println("Taking screenshot...");
             String reportDirectory = "./target/surefire-reports";
             File destFile = new File( reportDirectory + "/success_screenshots/screenshot" + UUID.randomUUID() + ".png");
             FileUtils.copyFile(scrFile, destFile);
