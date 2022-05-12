@@ -1,0 +1,31 @@
+name: demo
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: maven
+      - name: Test with Maven
+        run: mvn clean test
+      - name: Surefire Report
+        uses: ScaCap/action-surefire-report@v1.0.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: |
+            target/surefire-reports/emailable-report.html
+            target/surefire-reports/success_screenshots/
