@@ -7,6 +7,10 @@ import org.testng.annotations.Test;
 import pages.fb.objects.Post;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 public class Posts extends Login{
@@ -54,8 +58,15 @@ public class Posts extends Login{
                 String imagePath = String.format("out/images/img%s.png", post.hash);
 
                 // Create image file
-                pages.fb.Posts.createImageFileFromSource(imagePath, post.imgSrc);
-
+                if (post.imgSrc.equals("ImageNotFound")) {
+                    try {
+                        Files.copy(Paths.get("src/main/resources/image-not-found.png"), Paths.get(imagePath), StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException e) {
+                        System.out.println("Something ain't right :/");
+                    }
+                } else {
+                    pages.fb.Posts.createImageFileFromSource(imagePath, post.imgSrc);
+                }
             }
         }
     }

@@ -30,7 +30,22 @@ public class Posts {
     }
 
     public static String getPostImageSrc(WebElement post) {
-        return post.findElement(Constants.Facebook.Posts.postImageSrc).getAttribute("src");
+
+        int retries = 3;
+        int retry = 0;
+        while (retry <= retries) {
+            try {
+                return post.findElement(Constants.Facebook.Posts.postImageSrc).getAttribute("src");
+            } catch (Exception e) {
+                if (retry == retries) {
+                    return "ImageNotFound";
+                } else {
+                    retry++;
+                    Common.waitForMillis(Duration.ofMillis(500));
+                }
+            }
+        }
+        return "ImageNotFound";
     }
 
     public static void createImageFileFromSource(String path, String source) {
