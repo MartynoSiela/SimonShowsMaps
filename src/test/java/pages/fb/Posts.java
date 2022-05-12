@@ -55,7 +55,7 @@ public class Posts {
             File image = new File(path);
             ImageIO.write(bf, "png", image);
         } catch(IOException e) {
-            System.out.println("Something ain't right :/" + e.getMessage());
+            System.out.println("Creating image file from source :/ " + e.getMessage() + " Path: " + path);
         }
     }
 
@@ -87,7 +87,7 @@ public class Posts {
                 postsList.add(post);
             }
         } catch (IOException e) {
-            System.out.println("Something ain't right :/" + e.getMessage());
+            System.out.println("Reading posts from file to list :/ " + e.getMessage());
         }
         return postsList;
     }
@@ -109,7 +109,7 @@ public class Posts {
             // Write Post object as a line with property values split by delimiter
             out.println(String.format("%d%s%s%s%s", post.hash, d, formattedBodyText, d, post.imgSrc));
         } catch (IOException e) {
-            System.out.println("Something ain't right :/" + e.getMessage());
+            System.out.println("Writing post to file :/ " + e.getMessage());
         }
     }
 }

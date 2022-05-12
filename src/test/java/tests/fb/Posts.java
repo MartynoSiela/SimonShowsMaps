@@ -24,8 +24,8 @@ public class Posts extends Login{
     public void getNewPosts() {
 
         // Set file paths, out/ directory needs to be present
-        String pathHistoricalPostsFile = "out/postsHistorical.txt";
-        String pathNewPostsFile = "out/postsNew.txt";
+        String pathHistoricalPostsFile = "src/main/resources/postsHistorical.txt";
+        String pathNewPostsFile = "src/main/resources/postsNew.txt";
 
         // Read previously scanned posts
         List<Post> oldPosts = pages.fb.Posts.readPostsFromFileToList(pathHistoricalPostsFile);
@@ -55,14 +55,14 @@ public class Posts extends Login{
                 pages.fb.Posts.writePostToFile(post, pathHistoricalPostsFile);
 
                 // Create path for post image, directory out/images/ must be present
-                String imagePath = String.format("out/images/img%s.png", post.hash);
+                String imagePath = String.format("src/main/resources/img%s.png", post.hash);
 
                 // Create image file
                 if (post.imgSrc.equals("ImageNotFound")) {
                     try {
                         Files.copy(Paths.get("src/main/resources/image-not-found.png"), Paths.get(imagePath), StandardCopyOption.REPLACE_EXISTING);
                     } catch (IOException e) {
-                        System.out.println("Something ain't right :/");
+                        System.out.println("Copying image from template :/" + e.getMessage() + " Image path: " + imagePath);
                     }
                 } else {
                     pages.fb.Posts.createImageFileFromSource(imagePath, post.imgSrc);
