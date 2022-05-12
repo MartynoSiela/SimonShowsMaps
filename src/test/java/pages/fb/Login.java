@@ -20,14 +20,17 @@ public class Login {
 
     public static void inputEmail(String email) {
         Common.sendKeys(Constants.Facebook.Login.inputEmail, email);
+        System.out.println("Email entered");
     }
 
     public static void inputPassword(String password) {
         Common.sendKeys(Constants.Facebook.Login.inputPassword, password);
+        System.out.println("Password entered");
     }
 
     public static void clickLogin() {
         Common.clickElement(Constants.Facebook.Login.buttonLogin);
+        System.out.println("Login clicked");
     }
 
     public static void waitForPageLoad() {
