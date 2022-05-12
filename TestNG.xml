@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Scraping the web" parallel="methods" thread-count="1">
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
+    <test name="Scrape Simon" >
+        <classes>
+            <class name="tests.fb.Posts"/>
+        </classes>
+    </test>
+</suite>
