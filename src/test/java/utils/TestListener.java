@@ -20,7 +20,7 @@ public class TestListener implements ITestListener {
 
             System.out.println("Taking screenshot...");
             String reportDirectory = "./target/surefire-reports";
-            File destFile = new File( reportDirectory + "/success_screenshots/screenshot" + UUID.randomUUID() + ".png");
+            File destFile = new File( reportDirectory + "/screenshots/screenshot" + UUID.randomUUID() + ".png");
             FileUtils.copyFile(scrFile, destFile);
             Reporter.log("<a href='"+ destFile.getAbsolutePath() + "'> <img src='"+ destFile.getAbsolutePath() + "' height='100' width='100'/> </a>");
 

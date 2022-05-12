@@ -31,6 +31,10 @@ public class Login {
     }
 
     public static void waitForPageLoad() {
-        Common.waitForElementToBeVisible(Constants.Facebook.Login.textWelcomeHeading);
+        try {
+            Common.waitForElementToBeVisible(Constants.Facebook.Login.textWelcomeHeading);
+        } catch (Exception e) {
+            System.out.println("User name not found, trying to continue...");
+        }
     }
 }
