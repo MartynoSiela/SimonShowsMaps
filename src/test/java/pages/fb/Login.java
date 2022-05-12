@@ -10,7 +10,12 @@ public class Login {
     }
 
     public static void closeCookiesModal() {
-        Common.clickElement(Constants.Facebook.Login.buttonCookiesEssential);
+        try {
+            Common.waitForElementToBeVisible(Constants.Facebook.Login.buttonCookiesEssential);
+            Common.clickElement(Constants.Facebook.Login.buttonCookiesEssential);
+        } catch (Exception e) {
+            System.out.println("Cookies modal not found, trying to continue...");
+        }
     }
 
     public static void inputEmail(String email) {
