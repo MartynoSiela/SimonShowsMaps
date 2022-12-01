@@ -33,7 +33,7 @@ public class Posts extends Login{
         // Delete new posts file for a new one to be created
         FileUtils.deleteQuietly(new File(pathNewPostsFile));
 
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 5; i++) {
 
             // Get each post element
             WebElement postElement = pages.fb.Posts.getPostElement(i);

@@ -10,7 +10,7 @@ public class Driver {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver() {
-        WebDriverManager.chromedriver().driverVersion("100.0.4896.60").setup();
+        WebDriverManager.chromedriver().driverVersion("108").setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("window-size=1920,1080");
