@@ -10,7 +10,7 @@ public class Login extends BaseTest {
         pages.fb.Login.open();
         pages.fb.Login.closeCookiesModal();
         pages.fb.Login.inputEmail("shakatronas@gmail.com");
-        pages.fb.Login.inputPassword("nqm_HQY.nft7juc.mku");
+        pages.fb.Login.inputPassword("apY6f3A@CgfXj8*nUrcTq4DXN");
         pages.fb.Login.clickLogin();
         pages.fb.Login.waitForPageLoad();
     }
