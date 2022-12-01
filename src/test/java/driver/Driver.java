@@ -13,7 +13,8 @@ public class Driver {
         WebDriverManager.chromedriver().driverVersion("107").setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        options.addArguments("window-size=1920,1080");
+        options.addArguments("start-maximized");
+        options.addArguments("disable-notifications");
         driver.set(new ChromeDriver(options));
     }
 

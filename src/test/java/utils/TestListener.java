@@ -31,11 +31,13 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+        System.out.println("Test failed :/");
         takeScreenshot();
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
+        System.out.println("Test was successful!");
         takeScreenshot();
     }
 }

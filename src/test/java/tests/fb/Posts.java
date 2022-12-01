@@ -41,6 +41,7 @@ public class Posts extends Login{
             // Get values from the post element
             String postBodyText = pages.fb.Posts.getPostBodyText(postElement);
             Integer postHashCode = postBodyText.hashCode();
+            System.out.println(String.format("Post with hash (%s) created", postHashCode));
             String postImageSrc = pages.fb.Posts.getPostImageSrc(postElement);
 
             // Create post object
