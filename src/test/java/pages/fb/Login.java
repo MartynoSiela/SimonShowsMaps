@@ -34,11 +34,12 @@ public class Login {
     }
 
     public static void waitForPageLoad() {
-        try {
-            Common.waitForElementToBeVisible(Constants.Facebook.Login.textWelcomeHeading);
-        } catch (Exception e) {
-            // TODO fix an issue where the build is stuck on github actions if password is incorrect
-            System.out.println("User name not found, trying to continue...");
-        }
+        Common.waitForElementToBeVisible(Constants.Facebook.Login.textWelcomeHeading);
+//        try {
+//            Common.waitForElementToBeVisible(Constants.Facebook.Login.textWelcomeHeading);
+//        } catch (Exception e) {
+//            // TODO fix an issue where the build is stuck on github actions if password is incorrect
+//            System.out.println("User name not found, trying to continue...");
+//        }
     }
 }
